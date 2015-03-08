@@ -26,6 +26,7 @@
         <!--[if lt IE 9]><script src="http://v3.bootcss.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="http://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
         
+        <link rel="stylesheet" href="http://yizew-public.stor.sinaapp.com/awesome/css/font-awesome.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
 <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
@@ -37,7 +38,8 @@
         <!-- Bootstrap core JavaScript
 ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <!--script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script-->
+        <script src="http://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="http://v3.bootcss.com/assets/js/docs.min.js"></script>
         
@@ -63,59 +65,101 @@
     <body>
         <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
         
-        <!-- Docs master nav -->
-        <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="OneFiy.com" class="navbar-brand">one fiy</a>
-                </div>
-                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                    <ul class="nav navbar-nav">
-                        
-                        <li>
-                            <a href="#about">about me</a>
-                        </li>
-
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <!--li><a href="http://blog.getbootstrap.com" >博客</a></li-->
-                    </ul>
-                </nav>
-            </div>
-            
-        </header>
         
-        
-        <!-- Docs page layout -->
-        <div class="bs-docs-header" id="content">
+        <nav class="navbar navbar-default" id="navbar-top">
             <div class="container">
-                <h1>one fiy</h1>
-                <p>Interface application, Easy to use</p>
-                
+                <p class="navbar-text navbar-left"><a href="#" class="navbar-link">关于</a></p>
             </div>
-        </div>
+        </nav>
+        
         
         <div class="container bs-docs-container">
             
             <div class="row">
                 <div class="col-md-9" role="main">
-                    <div class="bs-docs-section">
-                        <h1 id="brief" class="page-header">提示：</h1>
-                        <p class="lead">项目正在建设中...</p>
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">
+                            <span class="icon-chevron-up" id="top-load-button"></span>
+                            <span class="icon-spinner icon-spin hidden" id="top-load-action"></span>
+                        </li>
+                    </ul>
+                    <div>
+                        <ul class="list-group"  id="forum_box">
+                            <li class="list-group-item">
+                                易增辉
+                                <code>
+                                    这一天早上，倚窗远望，满园花草青天白云，都倒映在明眸之中
+                                </code>
+                                <span class="icon-double-angle-down"></span>
+                            </li>
+                            
+                            <li class="list-group-item">
+                                易增辉
+                                <a class="bg-info badge kingTo" id="darkside">挽尊</a>
+                                <span class="icon-double-angle-up"></span>
+                                
+                                <div class="show">
+                                    这一天早上，钟青竹起床后还是和前些日子一样，神情素淡平静地独坐小楼，倚窗远望，满园花草青天白云，都倒映在她一双明眸之中，化作一道道幽静的风景，隐隐晃动流转着。
+                                    <footer>
+                                        2015-03-01 10:03 <span class="icon-comment-alt">11</span>
+                                    </footer>
+                                </div>
+                                <div class="hidden">..22.</div>
+                            </li>
+                            
+                            <li class="list-group-item">
+                                易增辉
+                                <code>
+                                    这一天早上，倚窗远望，满园花草青天白云，都倒映在明眸之中
+                                </code>
+                                
+                                <a class="icon-double-angle-down show-forum-info" id="11" href="javascipt:void(0)"></a>
+                                <a class="icon-double-angle-up  hidden-forum-info" id="hidden_11" href="javascipt:void(0)"></a>
+                                <p class="bg-warning">
+                                    这一天早上，钟青竹起床后还是和前些日子一样，神情素淡平静地独坐小楼，倚窗远望，满园花草青天白云，都倒映在她一双明眸之中，化作一道道幽静的风景，隐隐晃动流转着。
+                                </p>
+                                <div class="show">..11.</div>
+                                <div class="hidden">..22.</div>
+                            </li>
+                        </ul>
                     </div>
                     
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">
+                            <span class="icon-chevron-down"  id="down-load-button"></span>
+                            <span class="icon-spinner icon-spin hidden" id="down-load-action"></span>
+                        </li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item" id="user_box">
+                            <form class="form-inline" id="GetUserInfo" action="/sign" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">Name</label>
+                                    <input type="text" class="form-control" id="sigin_username" name="username" placeholder="请使用真实姓名" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail2">Email</label>
+                                    <input type="email" class="form-control" id="sigin_email" name="email" placeholder="请输入完整邮箱地址" required>
+                                </div>
+                                <button type="submit" class="btn btn-default" id="sigin">登录</button>
+                            </form>
+                        </li>
+                        <li class="list-group-item">
+                            <form class="form"  id="PostForumInfo" action="/forum" method="post">
+                                
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" name="content"></textarea>
+                                    <p class="help-block">您可以使用任意的标签，但它们最终将不被执行。</p>
+                                </div>
+                                <button type="submit" class="btn btn-default">发表</button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
                 
                 <div class="col-md-3">
                     <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
-                            
-                           
+                            <!--a href="#" >(:p)</a-->
                     </div>
                 </div>
             </div>
@@ -125,10 +169,7 @@
 ================================================== -->
         <footer class="bs-docs-footer" role="contentinfo">
             <div class="container">
-                
-                
                 <p>copy @ onefiy.com</p>
-                
             </div>
         </footer>
         
@@ -137,3 +178,153 @@
         
     </body>
 </html>
+
+<script>
+    //初始化
+    var server_name = 'http://www.apiself.com/'; //服务器域名，后期注意CORG
+    var user = null;	//用户数据
+    var sd = new Array();	//初始数据列
+    var sds= null;	//开始位
+    var sde= null;	//结束位
+    var m = 20; //一页数据条数
+    
+    
+    
+</script>
+
+<script>
+
+    var init = function(){	//初始化，自一打算页就执行的方法，每次打开页面只执行一次
+        //
+        GetUser();
+        GetForum();
+    }
+    
+    var GetUser = function(){	//获得用户资料，如果没有则增加 用户名 邮箱 输入栏
+    	
+         ajaxfun(server_name+'user.json','','get','GetUserInfo');
+    }
+    
+    var GetForum = function(){	//获得用户资料，如果没有则增加 用户名 邮箱 输入栏
+    	
+         ajaxfun(server_name+'forum.json','','get','GetForumList');
+    }
+    
+    var GetForumList = function(data){
+        //alert(data.key);
+       var l ='';
+        sd = data.forumList;
+        $.each(data.forumList,function(i,v){
+            //alert(v.username);
+            l+='<li class="list-group-item">'+v.username;
+            l+='<span class="icon-double-angle-down" id="'+v.id+'" onclick="shopForum('+v.id+')"></span>';
+            l+='<span class="icon-double-angle-up hidden" id="t_'+v.id+'" onclick="hiddenForum('+v.id+')"></span>';
+            l+='<code id="content_'+v.id+'">'+v.content+'</code>';
+            l+='<div id="content_info_'+v.id+'" class="hidden">';
+
+            l+='</div>';
+            l+='</li>';
+            
+        });
+        $('#forum_box').html(l);
+    }
+    
+    $("form").submit(function(){	//注意form表单中必须有 id、action、method
+        var data = $('#'+this.id).serialize();
+        ajaxfun(this.action,data,this.method,this.id);
+        return false;
+    });
+    function PostForumInfo(data){	//提交到forum以后
+        $('#myModalBody').html(data.val);
+        $('#myModal').modal('show');
+    }
+    
+    var GetUserInfo = function(data){	//ajax获得用户数据后调，用于解释执行返回的JSON数据
+        //根据返回json，如果key=1，成功获得用户数据
+        if(data.key ==1){
+        	user = data;
+            var l = '<label>'+user.name+'</label>';
+            $('#user_box').html(l);
+        }else if(data.key ==2){	//如果key=2，没有获得用户数据，原因是cookie登录失败
+            //在没有获得用户数据的时候，用户发表话题，需要输入邮箱和用户名，后台对此注册或登录处理
+            //如果属于登录处理用户名或邮箱不一致，则登录失败，如果属于注册处理，则邮箱名和用户名不能已存在
+            var l = '<form class="form-inline"><div class="form-group"><label for="exampleInputName2">Name</label>';
+            l+='<input type="text" class="form-control" id="sigin_username" name="username" id="exampleInputName2" placeholder="请使用真实姓名"></div>';
+            l+='<div class="form-group"><label for="exampleInputEmail2">Email</label>';
+            l+='<input type="email" class="form-control"  id="sigin_email" name="email" id="exampleInputEmail2" placeholder="请输入完整邮箱"></div>';
+            l+='<button type="submit" class="btn btn-default" onclick="sigin()">登录</button></form>';
+            //$('#user_box').html(l);
+            
+        }else{	//其它异常如断网，如服务器被黑，如维护
+        
+        }
+        //alert(data.name);alert(data.id);
+        
+        
+        
+    }
+    
+    init();
+    
+</script>
+
+
+<!-- 水泡提示 -->
+<script src="http://www.bootcss.com/p/grumblejs/js/jquery.grumble.min.js?v=6"></script>
+<link href="http://www.bootcss.com/p/grumblejs/css/grumble.min.css?v=5" rel="stylesheet">
+<script>
+$('.kingTo').click(function(e){
+	var $me = $(this), interval;
+    //alert(this.id);
+	e.preventDefault();
+	$me.grumble(
+        {
+            angle: 230,
+            text: 'Look at me!',
+            type: 'alt-', 
+			distance: 10,
+            hideOnClick: true,
+			
+        }
+	);
+});
+</script>
+<script>
+    var shopForum = function(id){
+        //alert(id);
+        $('#'+id).addClass('hidden');
+        $('#content_'+id).addClass('hidden');
+        $('#t_'+id).removeClass('hidden');
+        $('#content_info_'+id).removeClass('hidden');
+        $('#content_info_'+id).html('<span class="icon-spinner icon-spin"></span>');
+        ajaxfun(server_name+'forum/'+id+'.json','','get','loadForumInfo');
+        loadForumInfo(id);
+    }
+    var loadForumInfo = function(data){
+        var l = '';
+        l+=data.forumData.content;
+        l+='<footer>'+data.forumData.msgcount+'<span class="icon-comment-alt"></span> '+data.forumData.date+' ';
+        l+='</footer>';
+        $('#content_info_'+data.forumData.id).html(l);
+    }
+    
+    var hiddenForum = function(id){
+        $('#'+id).removeClass('hidden');
+        $('#content_'+id).removeClass('hidden');
+        $('#t_'+id).addClass ('hidden');
+        $('#content_info_'+id).addClass ('hidden');
+    }
+    
+    $('#top-load-button').click(function(e){
+        //var $me = $(this), interval;
+        alert(this.id);
+        //$('hidden_11').addClass('show');
+        //$('hidden_11'). removeClass('hidden');
+    });
+    $('#down-load-button').click(function(e){
+        //var $me = $(this), interval;
+        alert(this.id);
+        //$('hidden_11').addClass('show');
+        //$('hidden_11'). removeClass('hidden');
+    });
+</script>
