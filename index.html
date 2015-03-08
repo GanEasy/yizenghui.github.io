@@ -130,31 +130,7 @@
                             <span class="icon-spinner icon-spin hidden" id="down-load-action"></span>
                         </li>
                     </ul>
-                    <ul class="list-group">
-                        <li class="list-group-item" id="user_box">
-                            <form class="form-inline" id="GetUserInfo" action="http://www.apiself.com/sign" method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputName2">Name</label>
-                                    <input type="text" class="form-control" id="sigin_username" name="username" placeholder="请使用真实姓名" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail2">Email</label>
-                                    <input type="email" class="form-control" id="sigin_email" name="email" placeholder="请输入完整邮箱地址" required>
-                                </div>
-                                <button type="submit" class="btn btn-default" id="sigin">登录</button>
-                            </form>
-                        </li>
-                        <li class="list-group-item">
-                            <form class="form"  id="PostForumInfo" action="http://www.apiself.com/forum" method="post">
-                                
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="3" name="content"></textarea>
-                                    <p class="help-block">您可以使用任意的标签，但它们最终将不被执行。</p>
-                                </div>
-                                <button type="submit" class="btn btn-default">发表</button>
-                            </form>
-                        </li>
-                    </ul>
+                    
                 </div>
                 
                 <div class="col-md-3">
@@ -195,8 +171,7 @@
 <script>
 
     var init = function(){	//初始化，自一打算页就执行的方法，每次打开页面只执行一次
-        //
-        GetUser();
+        //GetUser();
         GetForum();
     }
     
