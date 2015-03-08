@@ -8,8 +8,8 @@
         <meta name="description" content="Try to understand me from here">
         <meta name="keywords" content="onefiy case">
         <meta name="author" content="yizenghui">
-
-    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+        <!--base href="http://www.apiself.com/"/-->
+        <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
         <title>
             
             one fiy
@@ -132,7 +132,7 @@
                     </ul>
                     <ul class="list-group">
                         <li class="list-group-item" id="user_box">
-                            <form class="form-inline" id="GetUserInfo" action="/sign" method="post">
+                            <form class="form-inline" id="GetUserInfo" action="http://www.apiself.com/sign" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputName2">Name</label>
                                     <input type="text" class="form-control" id="sigin_username" name="username" placeholder="请使用真实姓名" required>
@@ -145,7 +145,7 @@
                             </form>
                         </li>
                         <li class="list-group-item">
-                            <form class="form"  id="PostForumInfo" action="/forum" method="post">
+                            <form class="form"  id="PostForumInfo" action="http://www.apiself.com/forum" method="post">
                                 
                                 <div class="form-group">
                                     <textarea class="form-control" rows="3" name="content"></textarea>
@@ -231,7 +231,7 @@
     
     $("form").submit(function(){	//注意form表单中必须有 id、action、method
         var data = $('#'+this.id).serialize();
-        ajaxfun(server_name+this.action,data,this.method,this.id);
+        ajaxfun(this.action,data,this.method,this.id);
         return false;
     });
     function PostForumInfo(data){	//提交到forum以后
