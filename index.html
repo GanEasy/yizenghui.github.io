@@ -231,7 +231,7 @@
     
     $("form").submit(function(){	//注意form表单中必须有 id、action、method
         var data = $('#'+this.id).serialize();
-        ajaxfun(this.action,data,this.method,this.id);
+        ajaxfun(server_name+this.action,data,this.method,this.id);
         return false;
     });
     function PostForumInfo(data){	//提交到forum以后
@@ -302,10 +302,8 @@ $('.kingTo').click(function(e){
     }
     var loadForumInfo = function(data){
         var l = '';
-        l+=data.forumData.content;
-        l+='<footer>'+data.forumData.msgcount+'<span class="icon-comment-alt"></span> '+data.forumData.date+' ';
-        l+='</footer>';
-        $('#content_info_'+data.forumData.id).html(l);
+        l+=data.content+'<footer>'+data.msgcount+'<span class="icon-comment-alt"></span> '+data.date+'</footer> ';
+        $('#content_info_'+data.id).html(l);
     }
     
     var hiddenForum = function(id){
