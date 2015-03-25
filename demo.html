@@ -480,6 +480,7 @@
         
         // 文件上传失败，现实上传出错。
         uploader.on( 'uploadError', function( file ) {
+            alert(file.id);
             var $li = $( '#'+file.id ),
                 $error = $li.find('div.error');
             
