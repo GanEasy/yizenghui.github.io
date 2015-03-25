@@ -438,6 +438,7 @@
         
         //处理服务器返回的数据
         uploader.on('uploadAccept',function( object, ret ){
+            alert(ret.key);
             if(ret.key==1){
                 var img = $('#img').val();
                 $('#img').val(img+ret.picid);
