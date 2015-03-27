@@ -1,277 +1,584 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
     <head>
-        <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Try to understand me from here">
-        <meta name="keywords" content="onefiy case">
-        <meta name="author" content="yizenghui">
-        <!--base href="http://www.apiself.com/"/-->
-        <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
-        <title>
-            
-            one fiy
-            
-        </title>
-        
-        <!-- Bootstrap core CSS -->
-        <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        
-        <link href="http://v3.bootcss.com/assets/css/patch.css" rel="stylesheet">
-        
-        <!-- Documentation extras -->
-        <link href="http://v3.bootcss.com/assets/css/docs.min.css" rel="stylesheet">
-        <!--[if lt IE 9]><script src="http://v3.bootcss.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <script src="http://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
-        
-        <link rel="stylesheet" href="http://yizew-public.stor.sinaapp.com/awesome/css/font-awesome.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>TuDu Club</title>
         <!--[if lt IE 9]>
-<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+        <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
         
-        <!-- Favicons -->
+        <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
+        <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>
         
-        <!-- Bootstrap core JavaScript
-================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <!--script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script-->
-        <script src="http://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
-        <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="http://v3.bootcss.com/assets/js/docs.min.js"></script>
-        
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-        <script>
-            function ajaxfun(url,data,_type,aMethod){
-                $.ajax({
-                    type:_type,
-                    url:url,
-                    data:data,
-                    dataType:"json",
-                    success:function(data){
-                         if(aMethod){
-                            window[aMethod](data);
-                        }
-                    }
-                })
+        <style>
+            body { padding-bottom: 70px; }
+            .author-thumb {
+                width: 47px;
+                height: 47px;
+                float: left;
+                margin-right: 9px;
+                border-radius: 100%;
             }
-        </script>
-        
+            
+            .starter-template p span {
+                font-size: 12px;
+                font-weight: 400;
+                color: #999;
+            }
+            .pager{
+                margin: 8px 0;
+            }
+            .pager li>a, .pager li>span {
+                display: inline-block;
+                padding: 5px 14px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            
+            .tiny-button{
+                margin:0;
+                padding:0;
+                width:100%;
+                height:30px;
+            }
+            
+            .tiny-button li{
+                width:20px;
+                height:20px;
+                line-height:20px;
+                float:left;
+                list-style: none;
+                text-align: center;
+            }
+            
+            .upload-pic-list li .upload-info-title{
+                position: absolute;
+                bottom:0px;
+                width:100px;
+                height:20px;
+                line-height:20px;
+                background: rgba(35, 240, 61, 0.42);
+                color:red;
+            }
+            
+            .webuploader-container {
+                position: relative;
+                width:20px;
+            }
+            .webuploader-element-invisible {
+                position: absolute !important;
+                clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+                clip: rect(1px,1px,1px,1px);
+            }
+            .webuploader-pick {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                /*background: #00b7ee;
+                padding: 10px 15px;
+                color: #fff;*/
+                text-align: center;
+                border-radius: 3px;
+                overflow: hidden;
+                width:20px;
+                float:left;
+            }
+            .webuploader-pick-hover {
+                /*background: #00a2d4;*/
+            }
+            
+            .webuploader-pick-disable {
+                opacity: 0.6;
+                pointer-events:none;
+            }
+            
+        </style>
     </head>
     <body>
-        <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
         
-        
-        <nav class="navbar navbar-default" id="navbar-top">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
-                <p class="navbar-text navbar-left"><a href="#" class="navbar-link">关于</a></p>
+                <nav class="text-left" id="navbar">
+                    <ul class="pager">
+                        
+                        <li class="previous"><a href="#signIn"><span title="" data-toggle="tooltip" aria-hidden="true" class="glyphicon glyphicon-exclamation-sign" data-original-title="Sign in"></span></a></li>
+                    </ul>
+                </nav>
             </div>
         </nav>
         
-        
-        <div class="container bs-docs-container">
+        <div class="container" id="container">
             
-            <div class="row">
-                <div class="col-md-9" role="main">
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">
-                            <span class="icon-chevron-up" id="top-load-button"></span>
-                            <span class="icon-spinner icon-spin hidden" id="top-load-action"></span>
-                        </li>
-                    </ul>
-                    <div>
-                        <ul class="list-group"  id="forum_box">
-                            <li class="list-group-item">
-                                易增辉
-                                <code>
-                                    这一天早上，倚窗远望，满园花草青天白云，都倒映在明眸之中
-                                </code>
-                                <span class="icon-double-angle-down"></span>
-                            </li>
-                            
-                        </ul>
-                    </div>
+        </div>
+        
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
                     
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">
-                            <span class="icon-chevron-down"  id="down-load-button"></span>
-                            <span class="icon-spinner icon-spin hidden" id="down-load-action"></span>
-                        </li>
-                    </ul>
-                    <ul class="list-group">
-                        
-                    </ul>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
-                            <!--a href="#" >(:p)</a-->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalTitle">Edit</h4>
                     </div>
+                    <div class="modal-body" id="myModalBody">
+                        ...
+                    </div>
+                    <div class="modal-footer" id="myModalFooter">赞助商推广： 易增辉网络</div>
+                    
                 </div>
             </div>
         </div>
-        
-        <!-- Footer
-================================================== -->
-        <footer class="bs-docs-footer" role="contentinfo">
-            <div class="container">
-                <p>copy @ onefiy.com</p>
-            </div>
-        </footer>
-        
-        
-        
         
     </body>
 </html>
 
 <script>
-    //初始化
-    var server_name = 'http://www.onefiy.com/'; //服务器域名，后期注意CORG
-    var user = null;	//用户数据
-    var sd = new Array();	//初始数据列
-    var sds= null;	//开始位
-    var sde= null;	//结束位
-    var m = 20; //一页数据条数
-    
-    
-    
+    //变量目录
+    var API_SERVER,//接口服务器
+        token,//交互的锁钥
+        init,//初始化方法
+        S,//获得数据方法
+        cache,//webStorage数据本地化处理方法
+        ajaxfun,//ajax交互方法
+        SqlRun,//数据处理中转方法
+        ck_webstorage,//检查webStorage是否支持
+        RUE,//事务中转器
+        online,//用户在线检测器，自动获得token或提示获得token
+        onController,//首启处理器，页面初次明显调用其它处理器
+        signIn,//登录事务触发器，生成登录页
+        GoSignin,//登录处理器，获得登录数据并提交服务器
+        GoSigninBack,//登录结算器，解释服务器返回的数据，对登录处理进行结算，并生成新导航状态、本地化数据保存。
+        News,//消息动态，刷新页面时初始化主页动态资讯
+        NewsBack,//消息解释器
+        ed,//新消息事务触发器，生成新消息页
+        picEvent,//初始化图片无刷新上传工具webuploader
+        edcont,//新消息处理器，包括加载无刷新上传、数据抓取、提交
+        User,//当URL中第一位置方法不在定义的JS方法列中，使用此方法获取用户相关资料，参数 key 用户名
+        edBack;//新消息结算器。
 </script>
-
 <script>
-
-    var init = function(){	//初始化，自一打算页就执行的方法，每次打开页面只执行一次
-        //GetUser();
-        GetForum();
-    }
+    API_SERVER = 'http://apiself.sinaapp.com/';
     
-    var GetUser = function(){	//获得用户资料，如果没有则增加 用户名 邮箱 输入栏
-    	
-         ajaxfun(server_name+'user.json','','get','GetUserInfo');
-    }
-    
-    var GetForum = function(){	//获得用户资料，如果没有则增加 用户名 邮箱 输入栏
-    	
-         ajaxfun(server_name+'forum.json','','get','GetForumList');
-    }
-    
-    var GetForumList = function(data){
-        //alert(data.key);
-       var l ='';
-        sd = data.forumList;
-        $.each(data.forumList,function(i,v){
-            //alert(v.username);
-            l+='<li class="list-group-item">'+v.username;
-            l+='<span class="icon-double-angle-down" id="'+v.id+'" onclick="shopForum('+v.id+')"></span>';
-            l+='<span class="icon-double-angle-up hidden" id="t_'+v.id+'" onclick="hiddenForum('+v.id+')"></span>';
-            l+='<code id="content_'+v.id+'">'+v.content+'</code>';
-            l+='<div id="content_info_'+v.id+'" class="hidden">';
-
-            l+='</div>';
-            l+='</li>';
+    S = function(c,a,m){	//用于F方法，可以获得一个对象的值 相当于find c类 a值
+        var data = localStorage.getItem(c+a);
+        if(data==null){
+            if(a==null){
             
-        });
-        $('#forum_box').html(l);
+                var data = ajaxfun(API_SERVER+c+'?token='+token,null,'get',m);
+            }else{
+            
+            var data = ajaxfun(API_SERVER+c+'/'+a+'?token='+token,null,'get',m);
+            }
+        }else{
+            //var timestamp = Date.parse(new Date());
+            
+            //alert(timestamp);
+        }
+        //localStorage.setItem("name","姓名");
     }
     
-    $("form").submit(function(){	//注意form表单中必须有 id、action、method
-        var data = $('#'+this.id).serialize();
-        ajaxfun(this.action,data,this.method,this.id);
-        return false;
-    });
-    function PostForumInfo(data){	//提交到forum以后
-        $('#myModalBody').html(data.val);
-        $('#myModal').modal('show');
+    cache = function(key,val){	// cache数据处理器
+        if(key != null && val ==null){	//取
+            return localStorage.getItem(key);
+        }else if(key != null && val !=null){	//存
+            if(val!=''){
+                return localStorage.setItem(key,val);
+            }else{
+                return localStorage.removeItem(key);
+            }
+        }else if(key == null && val ==null){	//清空所有
+            return localStorage.clear();
+        }
+        
     }
     
-    var GetUserInfo = function(data){	//ajax获得用户数据后调，用于解释执行返回的JSON数据
-        //根据返回json，如果key=1，成功获得用户数据
-        if(data.key ==1){
-        	user = data;
-            var l = '<label>'+user.name+'</label>';
-            $('#user_box').html(l);
-        }else if(data.key ==2){	//如果key=2，没有获得用户数据，原因是cookie登录失败
+    ajaxfun = function(url,data,_type,aMethod){
+        $.ajax({
+            type:_type,
+            url:url,
+            data:data,
+            dataType:"json",
+            success:function(result){
+                if(aMethod){window[aMethod](result);}
+                //return rest;
+            }
+        })
+    }
+    
+    SqlRun = function(m,c,a,data){	//js端数据处理中转器 m=>回调 c=>处理类 a=>具体对象
+        if( m!=null && c!=null && data==null){
+            S(c,a,m);
+        }else{
+            ajaxfun(API_SERVER+c+'/'+a,data,'post',m);
+        }
+    }
+    
+    ck_webstorage = function(){	//检查Storage支持情况
+        if(window.localStorage && window.sessionStorage){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    signIn = function(){
+        var l='<div class="row"><div class="col-md-6"><div class="form-group"><label for="exampleInputEmail1">The Username</label><div class="input-group"><span class="input-group-addon" id="basic-addon1">@</span><input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="username" required ></div></div><div class="form-group"><label for="exampleInputPassword1">Email address</label><div class="input-group"><span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-envelope"></span></span><input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon2" id="email" required ></div></div><p class="lead text-left help-block" id="SiginMsg">用户主页：http://tudu.club/#用户名</p></div><div class="col-md-6"><h4 class="text-left">提示：</h4><p class="lead text-left help-block">用户名长度为4-12字节，唯一且不可更改。</p><p class="lead text-left help-block">邮箱是登录凭证之一，不会向您提供的邮箱发送任何带有商业气息的电子邮件，并为您作保密处理！</p><p class="lead text-left"><button type="submit" class="btn btn-default" onclick="GoSignin()"><span class="glyphicon glyphicon-hand-up"></span>对上述内容已经了解！Sign In！！</button></p></div></div>';
+        $('#myModalTitle').html('Sign in!!!');
+        $('#myModalBody').html(l);
+    }
+    
+    RUE = function(){	// Reply URL Event
+        var locurl = location.href;
+        var start = locurl.indexOf("#");
+        var end = locurl.length;
+        var tempstr = locurl.substring(start + 1, end);
+        var temp = tempstr.split("&");
+        //alert(temp);
+        /* if(temp[2]!=null){
+            var a = temp[0];
+            var c = temp[0];
+            var data = temp[0];
+            
+        }else if(temp[1]!=null){
+            var a = temp[0];
+            var c = temp[0];
+        }else */
+            
+        if(temp[0]!=null){  //解释URL模式 #a&b&c a=>当前对象 如果存在 a方法则调用a方法，否则解释为用户对象 b为方法属性 c为附加参数
+            var a = temp[0];
+            if(window[a]){window[a]();}else{
+                User(a);
+            }
+        }
+        
+        //alert(temp[0]);alert(temp[1]);
+        //alert(parm);
+    }
+    /*modal 打开前调用show,打开后调shown */
+    //$('#myModal').on('show.bs.modal', function (e) {$('#myModalTitle').html('load...');$('#myModalBody').html('<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>...');});
+    $('#myModal').on('shown.bs.modal', function (e) {RUE();});
+    
+    init = function(){	//初始化，自一打算页就执行的方法，每次打开页面只执行一次
+        //; 不支持webStorage的浏览器无法访问
+        if(!ck_webstorage()){alert("您的浏览器不支持webStorage, 请升级或更换新浏览器！");return false;}
+        online();
+        onController();
+        News();
+    }
+    
+    online = function(){	//用户资源检查
+        token = sessionStorage.getItem('UserToken');	//key是用户写服务器交互的维一密令
+        if(token == null){
+            token = cache('UserToken');
+        }
+        if(token != null){
+            sessionStorage.setItem('UserToken',token);
+            var l = '';
+            //l  +='<li class="previous"><a href="#me" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-home" aria-hidden="true"  data-toggle="tooltip" title="我的动态"></span></a></li>';
+            //l  +='<li class="previous"><a href="#att" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-headphones" aria-hidden="true"  data-toggle="tooltip" title="关注的事"></span></a></li>';
+            l 	+='<li class="previous"><a href="#ed" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-edit" aria-hidden="true"  data-toggle="tooltip" title="新消息"></span></a></li>';
+            //l  +='<li class="previous"><a href="#sea" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-search" aria-hidden="true"  data-toggle="tooltip" title="搜索"></span></a></li>';
+            l  +='<li  class="next"><a href="#cog" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-cog" aria-hidden="true" data-toggle="tooltip"  title="设置"></span></a></li>';
+            //l  +='<li class="next"><a href="#cue" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-bell" aria-hidden="true" data-toggle="tooltip" title="提醒"></span></a></li>';
+            $('.pager').html(l);
+        }else{
             //在没有获得用户数据的时候，用户发表话题，需要输入邮箱和用户名，后台对此注册或登录处理
             //如果属于登录处理用户名或邮箱不一致，则登录失败，如果属于注册处理，则邮箱名和用户名不能已存在
-            var l = '<form class="form-inline"><div class="form-group"><label for="exampleInputName2">Name</label>';
-            l+='<input type="text" class="form-control" id="sigin_username" name="username" id="exampleInputName2" placeholder="请使用真实姓名"></div>';
-            l+='<div class="form-group"><label for="exampleInputEmail2">Email</label>';
-            l+='<input type="email" class="form-control"  id="sigin_email" name="email" id="exampleInputEmail2" placeholder="请输入完整邮箱"></div>';
-            l+='<button type="submit" class="btn btn-default" onclick="sigin()">登录</button></form>';
-            //$('#user_box').html(l);
+            var l = '';
+            l  +='<li class="previous"><a href="#signIn"  data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="Sign in"></span></a></li>';
+            $('.pager').html(l);
+        }
+        
+        $('.pager a').bind('click', function() {	//重绑点击事件
+            var locurl = this.href;
+            var start = locurl.indexOf("#");
+            var end = locurl.length;
+            var tempstr = locurl.substring(start + 1, end);
+            window.location.hash =	tempstr;
+        })
+        $('.pager [data-toggle="tooltip"]').tooltip();
+        
+    }
+    
+    onController = function(){	/*页面刷新触发一次*/
+        var tempstr = location.hash;
+        
+        if(tempstr != null && tempstr!=''){
+            $('#myModal').modal('show');/*等同对URL#后面字符串进行解释,触发modal*/
+        }
+        
+        $('#myModal [data-toggle="tooltip"]').tooltip();
+    }
+    
+    GoSignin = function(){	/*登录数据处理for提交事件*/
+        //alert('xx');
+        var username = $('#username').val();
+        var email = $('#email').val();
+        if(username == null || username == '' || username ==' '){
+            return false;
+        }
+        if(email == null || email == '' || email ==' '){
+            return false;
+        }
+        var data = 'username='+username+'&email='+email
+        SqlRun('GoSigninBack','Signin','',data)
+    }
+    
+    
+    GoSigninBack = function(data){	/*登录回调函数*/
+        if(data.key ==1){
+            sessionStorage.setItem('UserToken',data.token);
+            cache('UserToken',data.token);
+            $('#myModal').modal('hide');
+            window.location.hash = '';
+            online();/*刷新在线状态*/
+        }else{
+            $('#SiginMsg').html(data.title+'('+data.content+')');
+        }
+    }
+    
+    
+    picEvent = function(){
+        
+        // 添加全局站点信息
+        var BASE_URL = 'http://cdn.staticfile.org/webuploader';
+        var BASE_SERVER = '';
+        // 图片上传demo
+        var $ = jQuery,
+            $list = $('#fileList'),
+            // 优化retina, 在retina下这个值是2
+            ratio = window.devicePixelRatio || 1,
             
-        }else{	//其它异常如断网，如服务器被黑，如维护
+            // 缩略图大小
+            thumbnailWidth = 100 * ratio,
+            thumbnailHeight = 100 * ratio,
+            
+            // Web Uploader实例
+            uploader;
+        
+        // 初始化Web Uploader
+        uploader = WebUploader.create({
+            
+            // 自动上传。
+            auto: true,
+            
+            // swf文件路径
+            swf: BASE_URL + '/js/Uploader.swf',
+            
+            // 文件接收服务端。
+            server: 'http://apiself.sinaapp.com/api/upload/',
+            
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePic',
+            
+            // 只允许选择文件，可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            
+            //不压缩图片
+            compress:false,
+        });
+        
+        // 当有文件添加进来的时候
+        uploader.on( 'fileQueued', function( file ) {
+            var $li = $(
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                '<img>' +
+                '<div class="info">' + file.name + '</div>' +
+                '</div>'
+            ),
+                $img = $li.find('img');
+            
+            $list.append( $li );
+            
+            // 创建缩略图
+            uploader.makeThumb( file, function( error, src ) {
+                if ( error ) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+                
+                $img.attr( 'src', src );
+            }, thumbnailWidth, thumbnailHeight );
+        });
+        
+        //uploadBeforeSend 附带参数
+        uploader.on('uploadBeforeSend',function( object, data, headers ){
+            //data.id 
+            //alert(data.id);
+        });
+        
+        //处理服务器返回的数据
+        uploader.on('uploadAccept',function( object, ret ){
+            if(ret.key==1){
+                var img = $('#img').val();
+                $('#img').val(img+ret.picid);
+                
+            }else{	//uploadBeforeSend参数中附加了id,把这id返回进行对上传失败的数据处理
+                
+                //$( '#'+ret.id ).find('.upload-state-done').remove();
+                var $li = $( '#'+ret.id ),
+                    $error = $li.find('div.error');
+                
+                // 避免重复创建
+                if ( !$error.length ) {
+                    $error = $('<div class="error"></div>').appendTo( $li );
+                }
+                
+                $error.text('上传失败');
+            }
+        });
+        
+        // 文件上传过程中创建进度条实时显示。
+        uploader.on( 'uploadProgress', function( file, percentage ) {
+            var $li = $( '#'+file.id ),
+                $percent = $li.find('.progress span');
+            
+            // 避免重复创建
+            if ( !$percent.length ) {
+                $percent = $('<p class="progress"><span></span></p>')
+                .appendTo( $li )
+                .find('span');
+            }
+            
+            $percent.css( 'width', percentage * 100 + '%' );
+        });
+        
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on( 'uploadSuccess', function( file ) {
+            //$( '#'+file.id ).addClass('upload-state-done');
+        });
+        
+        // 文件上传失败，现实上传出错。
+        uploader.on( 'uploadError', function( file ) {
+            var $li = $( '#'+file.id ),
+                $error = $li.find('div.error');
+            
+            // 避免重复创建
+            if ( !$error.length ) {
+                $error = $('<div class="error"></div>').appendTo( $li );
+            }
+            
+            $error.text('上传失败');
+        });
+        
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on( 'uploadComplete', function( file ) {
+            $( '#'+file.id ).find('.progress').remove();
+        });
+        
+    }
+    
+    ed = function(){
+        if(token == null){
+            return false;
+        }else{
+            //alert(token);
+            var l='<div class="form-group"><input type="hidden" id="img"><textarea class="form-control" rows="5"  style="resize:none;" id="content"></textarea><p class="help-block">#话题#想发表的内容(可添加图片附件)</p><ul class="tiny-button"><li><div id="filePic"><span class="glyphicon glyphicon-picture" ></span></div></li></ul></div><div class="form-group"><div id="uploader-demo"><div id="fileList" class="uploader-list"></div></div></div><button type="submit" class="btn btn-default" onclick="edcont()" id="SendPostButton" ><span class="glyphicon glyphicon-send"></span>This</button>'
+            $('#myModalTitle').html('Edit New!!!');
+            $('#myModalBody').html(l);
+            picEvent();
+        }
+        
+    }
+    
+    edcont = function(){
+        var img = $('#img').val();
+        //alert(img);
+        var content = $('#content').val();
+        //alert(content);
+        var data = 'img='+img+'&content='+content+'&token='+token;
+        
+        SqlRun('edBack','news','set',data);
+    }
+    edBack = function(data){
+        //alert(data.key);
+        if(data.key ==1){
+            $('#myModal').modal('hide');
+            window.location.hash = '';
+            News();
+        }
+    }
+    
+    News = function(){
+    
+        SqlRun('NewsBack','news','');
+    }
+    
+    NewsBack = function(data){
+        if(data.key == 1){
+            var l='';
+            $.each(data.newslist,function(i,v){
+                l+='<div class="media"><div class="media-left">';
+                l+='<a href="#'+v.username+'" data-toggle="modal" data-target=".bs-example-modal-lg"><img class="author-thumb full-img" src="http://image.golaravel.com/3/69/2bb4ddae2b7330de0c4991761548a.jpg"></a></div>';
+                l+='<div class="media-body"><h4 class="media-heading" id="media-heading">';
+                if(v.img !=""){
+                    l+='<a href="#Pic&'+v.id+'" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>';
+                }
+                l+='<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>'+v.hot;
+                l+='</h4>'+v.content;
+                l+='</div>';
+                l+='<div class="media-footer"><p class="lead text-left"><a href="#'+v.username+'"  data-toggle="modal" data-target=".bs-example-modal-lg"> '+v.username+'</a>  '+v.date+'</p></div> </div>';
+            });
+            $('#container').html(l);
+            $('#container a').bind('click', function() {	//重绑点击事件
+            var locurl = this.href;
+            var start = locurl.indexOf("#");
+            var end = locurl.length;
+            var tempstr = locurl.substring(start + 1, end);
+            window.location.hash =	tempstr;
+        })
+        }else if(data.key == 2){
+        
+        }else if(data.key == 3){
         
         }
-        //alert(data.name);alert(data.id);
+    }
+    
+    User = function(key){
+        //alert(key)
+        SqlRun('UserBack','user','about/username/'+key);
+        $('#myModalTitle').html(key);
+        $('#myModalBody').html('load...');
+    }
+    
+    UserBack = function(data){
+        $('#myModalTitle').html('About User !!!');
+        $('#myModalBody').html('info');
+    }
+    
+    Pic = function(){
+        $('#myModalTitle').html('相片');
+        $('#myModalBody').html('load...');
+        var locurl = location.href;
+        var start = locurl.indexOf("#");
+        var end = locurl.length;
+        var tempstr = locurl.substring(start + 1, end);
+        var temp = tempstr.split("&");
         
         
-        
+        SqlRun('PicBack','pic','index/id/'+temp[1]);
+    }
+    
+    PicBack = function(data){
+        if(data.key == 1){
+            var l='';
+            $.each(data.imglist,function(i,v){
+                l+=' <a class="thumbnail"><img src="'+v.url+'"></a>'
+            });
+            $('#myModalBody').html(l);
+        }
     }
     
     init();
-    
-</script>
-
-
-<!-- 水泡提示 -->
-<script src="http://www.bootcss.com/p/grumblejs/js/jquery.grumble.min.js?v=6"></script>
-<link href="http://www.bootcss.com/p/grumblejs/css/grumble.min.css?v=5" rel="stylesheet">
-<script>
-$('.kingTo').click(function(e){
-	var $me = $(this), interval;
-    //alert(this.id);
-	e.preventDefault();
-	$me.grumble(
-        {
-            angle: 230,
-            text: 'Look at me!',
-            type: 'alt-', 
-			distance: 10,
-            hideOnClick: true,
-			
-        }
-	);
-});
-</script>
-<script>
-    var shopForum = function(id){
-        //alert(id);
-        $('#'+id).addClass('hidden');
-        $('#content_'+id).addClass('hidden');
-        $('#t_'+id).removeClass('hidden');
-        $('#content_info_'+id).removeClass('hidden');
-        $('#content_info_'+id).html('<span class="icon-spinner icon-spin"></span>');
-        ajaxfun(server_name+'forum/'+id+'.json','','get','loadForumInfo');
-        loadForumInfo(id);
-    }
-    var loadForumInfo = function(data){
-        var l = '';
-        l+=data.content+'<footer>'+data.msgcount+'<span class="icon-comment-alt"></span> '+data.date+'</footer> ';
-        $('#content_info_'+data.id).html(l);
-    }
-    
-    var hiddenForum = function(id){
-        $('#'+id).removeClass('hidden');
-        $('#content_'+id).removeClass('hidden');
-        $('#t_'+id).addClass ('hidden');
-        $('#content_info_'+id).addClass ('hidden');
-    }
-    
-    $('#top-load-button').click(function(e){
-        //var $me = $(this), interval;
-        alert(this.id);
-        //$('hidden_11').addClass('show');
-        //$('hidden_11'). removeClass('hidden');
-    });
-    $('#down-load-button').click(function(e){
-        //var $me = $(this), interval;
-        alert(this.id);
-        //$('hidden_11').addClass('show');
-        //$('hidden_11'). removeClass('hidden');
-    });
 </script>
