@@ -261,7 +261,7 @@
         //alert(parm);
     }
     /*modal 打开前调用show,打开后调shown */
-    //$('#myModal').on('show.bs.modal', function (e) {$('#myModalTitle').html('load...');$('#myModalBody').html('<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>...');});
+    $('#myModal').on('show.bs.modal', function (e) {$('#myModalTitle').html('load...');$('#myModalBody').html('<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>...');});
     $('#myModal').on('shown.bs.modal', function (e) {RUE();});
     
     init = function(){	//初始化，自一打算页就执行的方法，每次打开页面只执行一次
