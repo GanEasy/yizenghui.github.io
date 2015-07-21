@@ -43,7 +43,7 @@ app.filter('trustHtml', function ($sce) {
 
 });
 
-app.controller('listController',function($scope,$http,$timeout) {
+app.controller('listController',function($scope,$http) {
     $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
