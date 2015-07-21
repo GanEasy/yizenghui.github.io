@@ -14,12 +14,18 @@
     <script src="/public/resource/js/angular-route.min.js"></script>
     <script src="/public/resource/js/angular-sanitize.min.js"></script>
     <script src="/public/resource/js/angular-resource.js"></script>
+    <script src="/public/resource/js/angular-animate.js"></script>
+    <script src="/public/resource/js/promise-tracker.js"></script>
+    
     <script src="/public/resource/angularjs/upload/ng-file-upload-shim.min.js"></script>
     <script src="/public/resource/angularjs/upload/ng-file-upload.min.js"></script>
     <script src="/public/resource/js/marked.js"></script>
     <script src="/public/app/services.js"></script>
     <script src="/public/app/app.js"></script>
     <style>
+    .ng-enter,.ng-leave {
+  background: #333;
+}
     </style>
 </head>
 
@@ -46,9 +52,15 @@
 		-->
     </div>
 </nav>
-<div class="container"  ng-view>
+<div class="container"  ng-view >
 
 </div>
-
+<!--
+<div ng-controller="NinjaBeaconCtrl">
+  <div ng-show="ninjaFinder.active()" style="color: red; font-size: 50px;">
+    The ninjas are on their way! They're loading! Just hold on a little longer!
+  </div>
+</div>
+-->
 </body>
 </html>
