@@ -44,7 +44,6 @@ app.filter('trustHtml', function ($sce) {
 });
 */
 app.controller('listController',function($scope,$http) {
-    windown.alert('listController');
     $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
