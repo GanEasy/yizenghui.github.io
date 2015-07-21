@@ -1,6 +1,6 @@
 var server_api = "https://yizen.sinaapp.com/";
 var api_exe = "?token=111";
-var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate'/*,'ajoslin.promise-tracker'*/]);
+var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate']);
 app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/', {
@@ -32,7 +32,7 @@ app.config(function ($routeProvider,$locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
 });
-
+/*
 app.filter('trustHtml', function ($sce) {
     return function (input) {
 
@@ -42,8 +42,9 @@ app.filter('trustHtml', function ($sce) {
     }
 
 });
-
+*/
 app.controller('listController',function($scope,$http) {
+    windown.alert('listController');
     $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
@@ -55,7 +56,6 @@ app.controller('searchController',function($scope,$http) {
         $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
     };
 });
-
 
 app.controller('DetailCtl',function($scope,$http, $routeParams) {
     $http.get(server_api+"article/detail"+"/id/"+$routeParams.id+api_exe).success(function(response) {
