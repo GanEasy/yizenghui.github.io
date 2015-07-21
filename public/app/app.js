@@ -43,13 +43,7 @@ app.filter('trustHtml', function ($sce) {
 
 });
 
-app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
-    $scope.ninjaTracker = promiseTracker('ninjas');
-    var timeoutPromise = $timeout(function() {
-      alert('ninjas have arrived!');
-    }, 2000);
-    $scope.ninjaTracker.addPromise(timeoutPromise);
-    
+app.controller('listController',function($scope,$http,$timeout) {
     $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
@@ -70,7 +64,7 @@ app.controller('DetailCtl',function($scope,$http, $routeParams,promiseTracker) {
     });
 });
 
-
+/*
 app.controller('NinjaBeaconCtrl',function($scope, $http, $timeout, promiseTracker) {
     
    $scope.ninjaFinder = promiseTracker('ninjas');
@@ -88,6 +82,7 @@ app.controller('NinjaBeaconCtrl',function($scope, $http, $timeout, promiseTracke
   });
 
 });
+*/
 
 app.controller('EditCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
 
