@@ -44,13 +44,15 @@ app.filter('trustHtml', function ($sce) {
 });
 
 app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
+    /*
      $http.get(server_api+"article"+api_exe).then(function(response) {
         $scope.lists = response;
         $timeout(function() {
           alert('ninjas have arrived!');
         }, 2000);
       });
-    //$http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
+      */
+    $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
 app.controller('searchController',function($scope,$http) {
