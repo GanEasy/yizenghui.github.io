@@ -45,6 +45,7 @@ app.filter('trustHtml', function ($sce) {
 
 app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
      $scope.ninjaTracker = promiseTracker('ninjas');
+    
     var timeoutPromise = $timeout(function() {
       //alert('ninjas have arrived!');
     }, 2000);
@@ -79,6 +80,7 @@ app.controller('DetailCtl',function($scope,$http, $routeParams,promiseTracker) {
 
 
 app.controller('NinjaBeaconCtrl',function($scope, $http, $timeout, promiseTracker) {
+    /*
    $scope.ninjaFinder = promiseTracker('ninjas');
   
   $http.get(server_api+"article/detail"+"/id/"+$routeParams.id+api_exe, {
@@ -92,6 +94,7 @@ app.controller('NinjaBeaconCtrl',function($scope, $http, $timeout, promiseTracke
     //The `tracker:` approach we did a few lines ago is just a shortcut for this.
     $scope.ninjaFinder.addPromise(wait);
   });
+*/
 });
 
 app.controller('EditCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
