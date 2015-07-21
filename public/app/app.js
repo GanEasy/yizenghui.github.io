@@ -57,7 +57,7 @@ app.controller('searchController',function($scope,$http) {
 });
 
 
-app.controller('DetailCtl',function($scope,$http, $routeParams,promiseTracker) {
+app.controller('DetailCtl',function($scope,$http, $routeParams) {
     $http.get(server_api+"article/detail"+"/id/"+$routeParams.id+api_exe).success(function(response) {
         $scope.article = marked(response.detail);
         // console.log($scope.article);
