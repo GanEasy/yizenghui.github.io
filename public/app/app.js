@@ -48,6 +48,8 @@ app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
     
     var timeoutPromise = $timeout(function() {
       //alert('ninjas have arrived!');
+      
+    $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
     }, 2000);
     /*
      $http.get(server_api+"article"+api_exe).then(function(response) {
@@ -57,7 +59,6 @@ app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
         }, 2000);
       });
       */
-    $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
     $scope.ninjaTracker.addPromise(timeoutPromise);
 });
 
