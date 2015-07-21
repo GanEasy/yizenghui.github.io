@@ -1,6 +1,6 @@
 var server_api = "https://yizen.sinaapp.com/";
 var api_exe = "?token=111";
-var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate']);
+var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate','ajoslin.promise-tracker']);
 app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/', {
@@ -43,9 +43,14 @@ app.filter('trustHtml', function ($sce) {
 
 });
 
-app.controller('listController',function($scope,$http) {
-
-    $http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
+app.controller('listController',function($scope,$http,$timeout,promiseTracker) {
+     $http.get(server_api+"article"+api_exe).then(function(response) {
+        $scope.lists = response;
+        $timeout(function() {
+          alert('ninjas have arrived!');
+        }, 2000);
+      });
+    //$http.get(server_api+"article"+api_exe).success(function(response) {$scope.lists = response;});
 });
 
 app.controller('searchController',function($scope,$http) {
@@ -58,7 +63,7 @@ app.controller('searchController',function($scope,$http) {
 });
 
 
-app.controller('DetailCtl',function($scope,$http, $routeParams) {
+app.controller('DetailCtl',function($scope,$http, $routeParams,promiseTracker) {
     $http.get(server_api+"article/detail"+"/id/"+$routeParams.id+api_exe).success(function(response) {
         $scope.article = marked(response.detail);
         // console.log($scope.article);
