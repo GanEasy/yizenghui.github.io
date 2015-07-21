@@ -1,6 +1,6 @@
 var server_api = "https://yizen.sinaapp.com/";
 var api_exe = "?token=111";
-var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate','ajoslin.promise-tracker']);
+var app = angular.module('app', ['ngRoute','ngSanitize','restServices','ngFileUpload','ngAnimate'/*,'ajoslin.promise-tracker'*/]);
 app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/', {
