@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://example.org/index.xml</link>
+    <link>http://yizenghui.github.io/index.xml</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Dec 2016 09:37:31 +0800</lastBuildDate>
-    <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://yizenghui.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>first</title>
-      <link>http://example.org/post/first/</link>
+      <link>http://yizenghui.github.io/post/first/</link>
       <pubDate>Fri, 09 Dec 2016 09:37:31 +0800</pubDate>
       
-      <guid>http://example.org/post/first/</guid>
+      <guid>http://yizenghui.github.io/post/first/</guid>
       <description>
 
 &lt;h3 id=&#34;hello-hugo&#34;&gt;Hello Hugo&lt;/h3&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>about</title>
-      <link>http://example.org/about/</link>
+      <link>http://yizenghui.github.io/about/</link>
       <pubDate>Fri, 09 Dec 2016 09:36:37 +0800</pubDate>
       
-      <guid>http://example.org/about/</guid>
+      <guid>http://yizenghui.github.io/about/</guid>
       <description></description>
     </item>
     
