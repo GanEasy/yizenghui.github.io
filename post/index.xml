@@ -6,6 +6,7 @@
     <description>Recent content in Posts on 一只猪</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <copyright>© yizenghui.com. All rights reserved. </copyright>
     <lastBuildDate>Fri, 09 Dec 2016 09:37:31 +0800</lastBuildDate>
     <atom:link href="http://yizenghui.com/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,6 +24,7 @@
 &lt;li&gt;aaa&lt;/li&gt;
 &lt;li&gt;bbb&lt;/li&gt;
 &lt;li&gt;ccc&lt;/li&gt;
+&lt;li&gt;2222&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
