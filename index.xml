@@ -1,41 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>一只猪</title>
-    <link>http://yizenghui.com/index.xml</link>
-    <description>Recent content on 一只猪</description>
+    <title>我要如何温暖我</title>
+    <link>/index.xml</link>
+    <description>Recent content on 我要如何温暖我</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>© yizenghui.com. All rights reserved. </copyright>
-    <lastBuildDate>Fri, 09 Dec 2016 09:37:31 +0800</lastBuildDate>
-    <atom:link href="http://yizenghui.com/index.xml" rel="self" type="application/rss+xml" />
+    <copyright> © yizenghui.com.</copyright>
+    <lastBuildDate>Sat, 24 Dec 2016 15:24:40 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>first</title>
-      <link>http://yizenghui.com/post/first/</link>
-      <pubDate>Fri, 09 Dec 2016 09:37:31 +0800</pubDate>
+      <title>烛光见影</title>
+      <link>/see-shadow</link>
+      <pubDate>Sat, 24 Dec 2016 15:24:40 +0000</pubDate>
       
-      <guid>http://yizenghui.com/post/first/</guid>
+      <guid>/see-shadow</guid>
       <description>
 
-&lt;h3 id=&#34;hello-hugo&#34;&gt;Hello Hugo&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;aaa&lt;/li&gt;
-&lt;li&gt;bbb&lt;/li&gt;
-&lt;li&gt;ccc&lt;/li&gt;
-&lt;li&gt;2222&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;潮有起落-人却漂浮&#34;&gt;潮有起落，人却漂浮！&lt;/h2&gt;
 </description>
     </item>
     
     <item>
-      <title>about</title>
-      <link>http://yizenghui.com/about/</link>
-      <pubDate>Fri, 09 Dec 2016 09:36:37 +0800</pubDate>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sat, 24 Dec 2016 15:19:48 +0000</pubDate>
       
-      <guid>http://yizenghui.com/about/</guid>
-      <description></description>
+      <guid>/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name: 易增辉 (yize)&lt;/li&gt;
+&lt;li&gt;WeChat ID: yize1992&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:zenghuitrue@gmail.com&#34;&gt;zenghuitrue@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;used&#34;&gt;Used&lt;/h2&gt;
+
+&lt;p&gt;Theme &lt;a href=&#34;https://github.com/zenithar/hugo-theme-bleak&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Bleak&lt;/a&gt; by &lt;a href=&#34;http://zutrinken.com&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;zutrinken&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Published with &lt;a href=&#34;http://gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Hugo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Remove article details page share link&lt;/li&gt;
+&lt;li&gt;Remove footer credits&lt;/li&gt;
+&lt;li&gt;Location Be limited to &lt;em&gt;params.guide&lt;/em&gt; for Navigation&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>
